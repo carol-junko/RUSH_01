@@ -10,26 +10,20 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_input_valid(char *str)
+void	create_grid(int grid[4][4])
 {
-	int	index;
+	int	row;
+	int	col;
 
-	index = 0;
-	while (str[index] != '\0')
+	row = 0;
+	while (row < 4)
 	{
-		if (index % 2 == 0)
+		col = 0;
+		while (col < 4)
 		{
-			if (!(str[index] >= '1' && str[index] <= '4'))
-				return (0);
+			grid[row][col] = 0;
+			col++;
 		}
-		else
-		{
-			if (str[index] != ' ')
-				return (0);
-		}
-		index++;
+		row++;
 	}
-	if (index != 31)
-		return (0);
-	return (1);
 }

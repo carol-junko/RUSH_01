@@ -31,7 +31,8 @@ print_grid
 count_visible 
 - tells how many building are visible in the line
 
-get_row_left line[i] = grid[row][i];
+get_row_left
 get_row_right 
 get_col_top
 get_col_bottom
+

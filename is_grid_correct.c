@@ -10,26 +10,33 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-int	is_input_valid(char *str)
-{
-	int	index;
+int		count_visible(int *line);
+void	get_row_left(int grid[4][4], int row, int *line);
+void	get_row_right(int grid[4][4], int row, int *line);
+void	get_col_top(int grid[4][4], int col, int *line);
+void	get_col_bottom(int grid[4][4], int col, int *line);
 
-	index = 0;
-	while (str[index] != '\0')
+int	is_grid_correct(int grid[4][4], int *clues)
+{
+	int	i;
+	int	line[4];
+
+	i = 0;
+	while (i < 4)
 	{
-		if (index % 2 == 0)
-		{
-			if (!(str[index] >= '1' && str[index] <= '4'))
-				return (0);
-		}
-		else
-		{
-			if (str[index] != ' ')
-				return (0);
-		}
-		index++;
+		get_col_top(grid, i, line);
+		if (count_visible(line) != clues[0 + i])
+			return (0);
+		get_col_bottom(grid, i, line);
+		if (count_visible(line) != clues[4 + i])
+			return (0);
+		get_row_left(grid, i, line);
+		if (count_visible(line) != clues[8 + i])
+			return (0);
+		get_row_right(grid, i, line);
+		if (count_visible(line) != clues[12 + i])
+			return (0);
+		i++;
 	}
-	if (index != 31)
-		return (0);
 	return (1);
 }
