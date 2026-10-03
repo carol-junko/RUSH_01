@@ -1,0 +1,37 @@
+functions allowed: write, malloc, free
+
+grid 4x4 filling the number 1-4 
+
+clues define the number of building i can see
+program must complete the middle section
+0 1 2 3 - coltop clues
+4 5 6 7 - colbottom clues
+8 9 10 11 - rowleft clues
+12 13 14 15 - rowright clues
+
+wrong format - error 
+righ format no solution - error 
+righ format, right solution - prints grid
+
+is_valid_input
+checks:
+- if USER input is only chars '1' ~ '4'
+- if contains 31 chars
+- if number are followed by " " || '\0'
+
+fill_clues
+- get the USER input string and get only the numbers into
+clues array
+
+print_grid
+- prints the prints the grid gave as argument
+- number folowed by a space
+- row followed by a new line
+
+count_visible 
+- tells how many building are visible in the line
+
+get_row_left line[i] = grid[row][i];
+get_row_right 
+get_col_top
+get_col_bottom
