@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-void	fill_clues(char *str, int *clues)
+void	get_clues(char *str, int *clues)
 {
 	while (*str != '\0')
 	{

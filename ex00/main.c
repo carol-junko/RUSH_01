@@ -15,7 +15,7 @@
 int		is_input_valid(char *str);
 int		solving(int grid[4][4], int *clues, int pos);
 void	create_grid(int grid[4][4]);
-void	fill_clues(char *str, int *clues);
+void	get_clues(char *str, int *clues);
 void	print_grid(int grid[4][4]);
 
 int	main(int argc, char **argv)
@@ -25,10 +25,10 @@ int	main(int argc, char **argv)
 
 	if (argc != 2 || !is_input_valid(argv[1]))
 	{
-		write(1, "Error1\n", 7);
+		write(1, "Error\n", 7);
 		return (1);
 	}
-	fill_clues(argv[1], clues);
+	get_clues(argv[1], clues);
 	create_grid(grid);
 	if (solving(grid, clues, 0))
 	{
@@ -36,7 +36,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		write(1, "Error1\n", 7);
+		write(1, "Error\n", 7);
 	}
 	return (0);
 }

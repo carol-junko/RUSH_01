@@ -12,8 +12,6 @@
 
 #include <unistd.h>
 
-int		count_visible(int *line);
-
 void	print_grid(int grid[4][4])
 {
 	int	row;
